@@ -3,3 +3,4 @@ dataset
 checkpoints
 wandb
 *.gz
+*.yaml

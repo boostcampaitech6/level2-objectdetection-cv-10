@@ -3,9 +3,6 @@ dataset
 checkpoints
 wandb
 *.gz
-<<<<<<< Updated upstream
 *.yaml
 work_dirs
-=======
-/data/ephemeral/home/level2-objectdetection-cv-10/develop/yumin/yolov7
->>>>>>> Stashed changes
+*.pyc

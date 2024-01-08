@@ -5,3 +5,4 @@ wandb
 *.gz
 *.yaml
 work_dirs
+*.pth

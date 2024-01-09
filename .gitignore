@@ -6,3 +6,4 @@ wandb
 *.yaml
 work_dirs
 *.pth
+*.jpg

@@ -15,7 +15,8 @@ model = dict(
         out_indices=(3, 4, 5),
         frozen_stages=0,
         norm_cfg=dict(
-            type='SyncBN', requires_grad=True, eps=1e-3, momentum=0.01),
+            # type='SyncBN', requires_grad=True, eps=1e-3, momentum=0.01), -> distributed 할때만 사용할것
+            type='BN', requires_grad=True, eps=1e-3, momentum=0.01),
         norm_eval=False,
         init_cfg=dict(
             type='Pretrained', prefix='backbone', checkpoint=checkpoint)),
@@ -70,6 +71,7 @@ data = dict(
     train=dict(pipeline=train_pipeline),
     val=dict(pipeline=test_pipeline),
     test=dict(pipeline=test_pipeline))
+
 # optimizer
 optimizer_config = dict(grad_clip=None)
 optimizer = dict(
@@ -78,6 +80,7 @@ optimizer = dict(
     momentum=0.9,
     weight_decay=0.0001,
     paramwise_cfg=dict(norm_decay_mult=0, bypass_duplicate=True))
+
 # learning policy
 lr_config = dict(
     policy='step',
@@ -85,6 +88,7 @@ lr_config = dict(
     warmup_iters=1000,
     warmup_ratio=0.1,
     step=[8, 11])
+
 # runtime settings
 runner = dict(type='EpochBasedRunner', max_epochs=12)
 

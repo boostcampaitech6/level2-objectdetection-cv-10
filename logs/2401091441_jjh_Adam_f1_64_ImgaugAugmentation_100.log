@@ -1,0 +1,3 @@
+[2024-01-09 14:41:34,916][INFO] >> 2401091441_jjh_Adam_f1_64_ImgaugAugmentation_100 Start
+[2024-01-09 14:41:34,916][INFO] >> Namespace(ip='127.0.0.1', port='6379', model='mmtrain', mode='train', seed=2022, epochs=100, dataset='BaseDataset', augmentation='ImgaugAugmentation', resize=[512, 512], batch_size=64, valid_batch_size=1000, optimizer='Adam', lr=0.001, val_ratio=0.2, criterion='f1', lr_decay_step=20, log_interval=10, data_dir='/data/ephemeral/home/level2-objectdetection-cv-10-1/dataset/', model_dir='./model', k_fold=-1, category_train=False, name='2401091441_jjh_Adam_f1_64_ImgaugAugmentation_100')
+[2024-01-09 15:28:20,453][INFO] >> 2401091441_jjh_Adam_f1_64_ImgaugAugmentation_100 Finished

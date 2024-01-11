@@ -1,0 +1,28 @@
+[2024-01-09 14:40:14,754][INFO] >> 2401091440_jjh_Adam_f1_64_ImgaugAugmentation_100 Start
+[2024-01-09 14:40:14,754][INFO] >> Namespace(ip='127.0.0.1', port='6379', model='mmtrain', mode='train', seed=2022, epochs=100, dataset='BaseDataset', augmentation='ImgaugAugmentation', resize=[512, 512], batch_size=64, valid_batch_size=1000, optimizer='Adam', lr=0.001, val_ratio=0.2, criterion='f1', lr_decay_step=20, log_interval=10, data_dir='/data/ephemeral/home/datasets/', model_dir='./model', k_fold=-1, category_train=False, name='2401091440_jjh_Adam_f1_64_ImgaugAugmentation_100')
+[2024-01-09 14:40:21,648][ERROR] >> Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/mmcv/utils/registry.py", line 69, in build_from_cfg
+    return obj_cls(**args)
+  File "/opt/conda/lib/python3.10/site-packages/mmdet/datasets/custom.py", line 97, in __init__
+    self.data_infos = self.load_annotations(local_path)
+  File "/opt/conda/lib/python3.10/site-packages/mmdet/datasets/coco.py", line 72, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/opt/conda/lib/python3.10/site-packages/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/opt/conda/lib/python3.10/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/data/ephemeral/home/datasets/train.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/ephemeral/home/level2-objectdetection-cv-10/redis_model_scheduler/task_consumer.py", line 88, in <module>
+    train(data_dir, conf_args, train_logger)
+  File "/data/ephemeral/home/level2-objectdetection-cv-10/develop/JJH/train.py", line 73, in train
+    datasets = [build_dataset(cfg.data.train)]
+  File "/opt/conda/lib/python3.10/site-packages/mmdet/datasets/builder.py", line 82, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/opt/conda/lib/python3.10/site-packages/mmcv/utils/registry.py", line 72, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: '/data/ephemeral/home/datasets/train.json'
+

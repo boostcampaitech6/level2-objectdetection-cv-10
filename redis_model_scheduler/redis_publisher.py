@@ -18,6 +18,7 @@ if __name__ == "__main__":
     config = {
         "ip" : args.ip,
         "port" : args.port,
+        "model" : "mmtrain",
         "mode" :  "train",
         "seed" : 2022,
         "epochs" : 100,
@@ -32,7 +33,7 @@ if __name__ == "__main__":
         "criterion" : "f1",
         "lr_decay_step" : 20,
         "log_interval" : 10,
-        "data_dir" : '/data/ephemeral/home/datasets/trainQA/images',
+        "data_dir" : '/data/ephemeral/home/level2-objectdetection-cv-10-1/dataset/',
         "model_dir" : os.environ.get("SM_MODEL_DIR", "./model"),
         "k_fold" : -1,
         "category_train" : False

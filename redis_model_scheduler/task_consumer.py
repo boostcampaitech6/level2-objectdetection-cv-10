@@ -5,7 +5,7 @@ import os, sys, json, time, traceback, argparse, logging, logging.handlers
 from git import Repo, exc
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from develop.JJH.train import train
+from develop.JJH.train import mmtrain
 
 repo_path = os.getcwd()
 
@@ -85,7 +85,7 @@ if __name__ == "__main__":
             train_logger = set_logger(f'logs/{conf_args.name}.log')
             train_logger.info(f"{conf_args.name} Start")
             try:
-                train(data_dir, conf_args, train_logger)
+                mmtrain(data_dir, conf_args, train_logger)
                 wandb.finish()
                 train_logger.info(f"{conf_args.name} Finished")
             except:

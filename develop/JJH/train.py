@@ -9,7 +9,7 @@ from mmdet.datasets import (build_dataloader, build_dataset,
 from mmdet.utils import get_device
 import wandb
 
-def train(data_dir, args, train_logger):
+def mmtrain(data_dir, args, train_logger):
     train_logger.info(args)
     run = wandb.init(
         project="jjh_test", 

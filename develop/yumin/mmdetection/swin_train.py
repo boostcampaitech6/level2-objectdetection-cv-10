@@ -14,25 +14,18 @@ import torch
 classes = ("General trash", "Paper", "Paper pack", "Metal", "Glass", 
            "Plastic", "Styrofoam", "Plastic bag", "Battery", "Clothing")
 
-wandb.init(project='cascade', name='cascade_6sigma_removed')
+wandb.init(project='cascade', name='faster_swin')
 # config file 들고오기
 
-cfg = Config.fromfile('/data/ephemeral/home/level2-objectdetection-cv-10/develop/yumin/mmdetection/configs/cascade_rcnn/cascade_rcnn_x101_64x4d_fpn_1x_coco.py')
+cfg = Config.fromfile('/data/ephemeral/home/level2-objectdetection-cv-10/develop/yumin/mmdetection/configs/_custom_/swin_T.py')
 #cfg = Config.fromfile('./configs/cascade_rcnn/cascade_rcnn_x101_64x4d_fpn_20e_coco.py')
 
 root='/data/ephemeral/home/level2-objectdetection-cv-10/dataset/'
-'''
-weighted_cross_entropy_loss = torch.tensor([5.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).cuda()
-# 1General trash / 2Paper / 3Paper pack / 4Metal / 5Glass / 6Plastic /7Styrofoam / 8Plastic bag / 9Battery / 10Clothing
-cfg.model.rpn_head.loss_cls.loss_weight = weighted_cross_entropy_loss            
-cfg.model.roi_head.bbox_head[0].loss_cls.loss_weight = weighted_cross_entropy_loss
-cfg.model.roi_head.bbox_head[1].loss_cls.loss_weight = weighted_cross_entropy_loss
-cfg.model.roi_head.bbox_head[2].loss_cls.loss_weight = weighted_cross_entropy_loss
-'''
+
 # dataset config 수정
 cfg.data.train.classes = classes
 cfg.data.train.img_prefix = root
-cfg.data.train.ann_file = root + 'updated_train.json' # train json 정보
+cfg.data.train.ann_file = root + 'train.json' # train json 정보
 
 cfg.data.test.classes = classes
 cfg.data.test.img_prefix = root
@@ -44,6 +37,7 @@ cfg.seed = 2022
 cfg.gpu_ids = [0]
 cfg.work_dir = '/data/ephemeral/home/level2-objectdetection-cv-10/develop/yumin/mmdetection/work_dirs/faster_rcnn_r50_fpn_1x_trash'
 
+#cfg.model.roi_head.bbox_head.num_classes = 10
 cfg.model.roi_head.bbox_head[0].num_classes = 10
 cfg.model.roi_head.bbox_head[1].num_classes = 10
 cfg.model.roi_head.bbox_head[2].num_classes = 10

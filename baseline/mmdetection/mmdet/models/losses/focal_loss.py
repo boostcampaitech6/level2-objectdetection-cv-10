@@ -136,6 +136,7 @@ def sigmoid_focal_loss(pred,
     """
     # Function.apply does not accept keyword arguments, so the decorator
     # "weighted_loss" is not applicable
+    
     loss = _sigmoid_focal_loss(pred.contiguous(), target.contiguous(), gamma,
                                alpha, None, 'none')
     if weight is not None:
@@ -218,6 +219,8 @@ class FocalLoss(nn.Module):
         assert reduction_override in (None, 'none', 'mean', 'sum')
         reduction = (
             reduction_override if reduction_override else self.reduction)
+        print("pred size:", pred.size())
+        print("target size:", target.size())
         if self.use_sigmoid:
             if self.activated:
                 calculate_loss_func = py_focal_loss_with_prob

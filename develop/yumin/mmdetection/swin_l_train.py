@@ -16,7 +16,7 @@ classes = ("General trash", "Paper", "Paper pack", "Metal", "Glass",
 wandb.init(project='cascade', name='cascade_swin_multi_scale')
 # config file 들고오기
 
-cfg = Config.fromfile('/data/ephemeral/home/level2-objectdetection-cv-10/develop/yumin/mmdetection/configs/_custom_/swin_b.py')
+cfg = Config.fromfile('/data/ephemeral/home/level2-objectdetection-cv-10/develop/yumin/mmdetection/configs/_custom_/swin_l.py')
 #cfg = Config.fromfile('./configs/cascade_rcnn/cascade_rcnn_x101_64x4d_fpn_20e_coco.py')
 
 root='/data/ephemeral/home/level2-objectdetection-cv-10/dataset/'

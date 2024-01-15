@@ -41,7 +41,14 @@ train_pipeline = [
     #dict(type='CutOut', n_holes=3,cutout_shape=(20, 20)),
     dict(type='RandomFlip', flip_ratio=0.5),
     #dict(type='RandomAffine', max_rotate_degree=30 ),
-    #dict(type='PhotoMetricDistortion', brightness_delta=10, hue_delta=10),
+    #dict(
+    #    type='OneOf',
+    #    transforms=[
+    #        dict(type='Blur', blur_limit=3, p=0.2),
+    #        dict(type='MedianBlur', blur_limit=3, p=0.2)
+    #    ],
+    #    p=0.1),
+    #dict(type='PhotoMetricDistortion', brightness_delta=15, hue_delta=2),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
     dict(type='DefaultFormatBundle'),
@@ -51,7 +58,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(1333, 800),
+        img_scale=(1024, 1024),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),

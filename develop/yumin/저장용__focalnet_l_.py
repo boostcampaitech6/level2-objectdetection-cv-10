@@ -1,18 +1,11 @@
-# _base_ = [
-#     #'./models/__sparse_rcnn_focal_custom.py',
-#     '../_base_/datasets/__coco_detection_custom.py',
-#     '../_base_/schedules/__schedule_custom.py',
-#     '../_base_/default_runtime.py'
-# ]
 
-##### 모델 구현 #####
 
 #pretrained = 'https://github.com/microsoft/FocalNet/releases/download/v1.0.0/focalnet_large_lrf_384_fl4.pth'  # noqa
 pretrained = '/data/ephemeral/home/level2-objectdetection-cv-10/develop/yumin/UniverseNet/configs/focalnet/epoch_36.pth'
 
 num_proposals = 300
   
-# model settings
+##### 모델 구현 #####
 num_stages = 6
 num_proposals = 100
 model = dict(
@@ -30,7 +23,7 @@ model = dict(
         focal_windows=[3, 5, 7, 9],
         focal_levels=[4, 4, 4, 4],
         use_conv_embed=False,
-        pretrained=None),
+        pretrained=pretrained),
     neck=dict(
         type='FPN',
         in_channels=[192, 384, 768, 1536],
@@ -184,7 +177,7 @@ evaluation = dict(interval=1, metric='bbox')
 ##### optimizer #####
 
 optimizer = dict(type='AdamW', lr=0.00025, weight_decay=0.0001) # for focalnet
-optimizer_config = dict(grad_clip=dict(max_norm=5, norm_type=2))
+optimizer_config = dict(_delete_=True, grad_clip=dict(max_norm=5, norm_type=2))
 
 
 ##### scheduler #####
@@ -200,7 +193,7 @@ lr_config = dict(
 )
 
 checkpoint_config = dict(max_keep_ckpts=3, interval=1)
-runner = dict(type='EpochBasedRunner', max_epochs=15)
+runner = dict(type='EpochBasedRunner', max_epochs=30)
 
 
 

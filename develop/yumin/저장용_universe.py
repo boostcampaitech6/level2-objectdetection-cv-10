@@ -1,9 +1,5 @@
-_base_ = [
-    '../universenet/models/universenet101_2008d.py',
-    # '../_base_/datasets/coco_detection_mstrain_480_960.py',
-    # '../_base_/schedules/schedule_20e.py', '../_base_/default_runtime.py'
-]
 
+pretrained_ckpt = 'open-mmlab://res2net101_v1d_26w_4s'
 
 ##### 모델 선언 #####
 model = dict(
@@ -23,7 +19,7 @@ model = dict(
         stage_with_dcn=(False, True, True, True),
         init_cfg=dict(
             type='Pretrained',
-            checkpoint='open-mmlab://res2net101_v1d_26w_4s')),
+            checkpoint=pretrained_ckpt)),
     neck=[
         dict(
             type='FPN',

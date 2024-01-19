@@ -1,0 +1,30 @@
+path: /data/ephemeral/home/level2-objectdetection-cv-10/dataset/yolo_train  # 데이터셋의 루트 디렉토리
+train: train.txt  # 훈련 이미지 폴더 또는 파일
+val: valid.txt  # 검증 이미지 폴더 또는 파일
+test: /images  # 테스트 이미지 폴더 또는 파일 (선택 사항)
+
+
+# 클래스 목록
+names:
+  - General trash
+  - Paper
+  - Paper pack
+  - Metal
+  - Glass
+  - Plastic
+  - Styrofoam
+  - Plastic bag
+  - Battery
+  - Clothing
+  # 여기에 필요한 클래스 이름을 계속 추가하세요
+
+# 추가 설정 (필요에 따라 조정)
+nc: 10  # 클래스 개수 (여기서는 3개로 설정)
+imgsz: 640  # 입력 이미지 크기
+epochs: 100  # 학습 에포크 수
+batch_size: 16  # 배치 크기
+
+# Train settings -------------------------------------------------------------------------------------------------------
+
+
+

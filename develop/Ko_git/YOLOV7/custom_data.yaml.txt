@@ -1,0 +1,16 @@
+download: bash ./scripts/get_coco.sh
+names:
+- General trash
+- Paper
+- Paper pack
+- Metal
+- Glass
+- Plastic
+- Styrofoam
+- Plastic bag
+- Battery
+- Clothing
+nc: 10
+test: /data/ephemeral/home/level2-objectdetection-cv-10/dataset/yolo_test/images
+train: /data/ephemeral/home/level2-objectdetection-cv-10/dataset/yolo_train/train.txt
+val: /data/ephemeral/home/level2-objectdetection-cv-10/dataset/yolo_train/valid.txt

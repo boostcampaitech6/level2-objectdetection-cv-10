@@ -11,7 +11,7 @@
 ### 1.1 맡은 역할
 
 
-은성 : YOLO v7, v8 실험, 앙상블 실험
+은성 : YOLO v7, v8 실험, 앙상블 실험, augmentation
 
 유민 :  cascade RCNN, Swin b, Swin L, down sampling, UniverseNet 실험, multi_scale실험
 
@@ -73,14 +73,12 @@
 
 ### 2.2 Noisy-Anchors
 
----
 
 - ‘**Learning from Noisy Anchors for One-stage Object Detection’ 논문을 보고 프로젝트에 적용**
 - IoU(Intersection over Union)을 통해 positive와 negative anchor를 나누게 되면 noise anchor가 발생해 학습이 잘 되지 않기 때문에 Anchor의 좋고(positive) 나쁨(negative)을 2분할하여 표현하지 않고 동적으로 연속적인 값 soft label로 표현해 성능향상
 
 ### 2.3 앙상블
 
----
 
 - WBF(Weighted Boxes Fusion) 와 NMS
 
@@ -88,14 +86,12 @@
 
 ### 배운점
 
----
 
 - object detection task의 전체 흐름도
 - image - label(annotation)형태의 데이터에 대한 이해
 
 ### 아쉬운 점
 
----
 
 - 좋은 Validation Set 을 잘 만들지 못해 판단하는데 어려움.
 - EDA를 통한 분석이 늦었고 체계적으로 분석하지 못함
